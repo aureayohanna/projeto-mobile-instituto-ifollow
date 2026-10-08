@@ -23,3 +23,5 @@ Este é um aplicativo móvel desenvolvido para o Instituto Ifollow, com o objeti
 1. Clone o repositório: `git clone https://github.com/aureayohanna/projeto-mobile-instituto-ifollow.git`
 2. Instale as dependências: `npm install`
 3. Inicie o servidor de desenvolvimento: `ionic serve`
+
+Desenvolvido por [Aurea Yohanna](https://github.com/aureayohanna)
