@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-content id="main-content" [fullscreen]="true">
+
+    <svg class="animated-svg" preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+      <path fill="#fd7169" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+      <path fill="#feaba6" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+    </svg>
+  
+    <div class="conteudo">
+      <img id="logo" src="../../assets/imgs/afoloulogobrancasvg.svg">
+      <form class="formulario">
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="fullName" name="fullName" label="Nome Completo" labelPlacement="floating"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="username" name="username" label="Usuário" labelPlacement="floating" [counter]="true" maxlength="15" class="counter-visible"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="email" [(ngModel)]="email" name="email" label="E-mail" labelPlacement="floating"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="date" [(ngModel)]="birthdate" name="birthdate" label="Data de Nascimento" labelPlacement="floating"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="cpf" name="cpf" label="CPF" labelPlacement="floating" (input)="formatCPF($event)"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="tel" [(ngModel)]="phone" name="phone" label="Celular" labelPlacement="floating" (input)="formatPhone($event)"></ion-input>
+        </ion-item>
+        <ion-item lines="none" class="custom-counter-item">
+          <ion-input type="password" [(ngModel)]="password" name="password" label="Senha" labelPlacement="floating" [counter]="true" maxlength="8" class="counter-visible"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword" label="Confirmar Senha" labelPlacement="floating" [counter]="true" maxlength="8" class="counter-visible"></ion-input>
+        </ion-item>
+        <ion-button type="submit" (click)="register()">Cadastrar</ion-button>
+        <h5 id="txt1">Já possui uma conta?</h5>
+        <a routerLink="/login"><h5 id="txt2">Login</h5></a>
+        <h6 id="txtentrar">ou entre com</h6>
+        <ion-button id="btn-google" (click)="googleLogin()"><img id="icon-google" src="../../assets/imgs/icon-google.svg">Google</ion-button>
+      </form>
+    </div>
+  </ion-content>
+</ion-app>

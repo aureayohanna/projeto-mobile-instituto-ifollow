@@ -1,0 +1,321 @@
+#main-content{
+  background: #fff5f4;
+  overflow: auto;
+}
+
+.banner-container {
+text-align: center;
+background-color: #fff5f4;
+}
+
+.banner-img {
+width: 100%;
+height: auto;
+padding-left: 7%;
+padding-right: 7%;
+margin-top: 20px;
+transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.titulo-banner {
+position: relative; 
+color: #000000;
+text-align: center;
+font-family: 'OpenSans-SemiBold', sans-serif;
+font-size: 24px;
+font-weight: 700;
+margin-top: 20px;
+padding-left: 5%;
+padding-right: 5%;
+}
+
+.txt-banner{
+color: #000000;
+text-align: center;
+margin-top: 5px;
+font-family: 'OpenSans-Light', sans-serif;
+font-size: 14px;
+font-weight: 400;
+position: relative;
+margin-right: 5%;
+margin-left: 5%;
+}
+
+.txt-banner::after {
+content: ''; 
+display: block; 
+width: 64px; 
+height: 2px; 
+background-color: #FD7169; 
+position: absolute; 
+bottom: -10px; 
+left: 50%; 
+transform: translateX(-50%);
+}
+
+#cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.titulo-cards{
+  color: #000000;
+  text-align: center;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 29px;
+  margin-bottom: 20px;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+}
+
+.titulo-cards::after {
+  content: ''; 
+  display: block; 
+  width: 64px; 
+  height: 2px; 
+  background-color: #FD7169; 
+  position: absolute; 
+  bottom: -10px; 
+  left: 50%; 
+   transform: translateX(-50%);
+}
+
+.card-col {
+  display: flex;
+  justify-content: center;
+}
+
+ion-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  border: 1px solid rgba(253, 113, 105, 0.55);
+  width: 100%;
+  height: 80%;
+  max-width: 340px; /* Ajuste para manter o tamanho consistente */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  align-items: center;    /* Centraliza o conteúdo horizontalmente */
+}
+
+.img-card-doar {
+  width: 50px;
+  height: auto;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.card-header-content {
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  width: 100%; 
+}
+
+.icon-title {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.linha-vertical {
+  height: 70px; 
+  border-left: 1.5px solid #fd7169;
+  padding: 0;
+  margin: 0 25px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha o conteúdo ao centro */
+  text-align: center;  /* Centraliza o texto */
+}
+
+ion-card-title {
+  color: #000;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 10px; /* Diminui o tamanho do título */
+  font-weight: 600;
+  text-decoration-line: underline;
+  margin-top: 10px;
+  transition: font-size 0.3s ease;
+}
+
+ion-card-content {
+  color: #000;
+  text-align: justify; 
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  transition: font-size 0.3s ease;
+}
+
+.valor-card {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.card-btn {
+  display: block;
+  margin: 10px auto 0 auto; /* Espaço entre o texto e o botão e centraliza o botão */
+  width: 82px;
+  --border-radius: 5px;
+  --background: #AAD3DF;
+  text-transform: capitalize;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+ion-modal {
+  --width: 350px;
+  --height: 190px;
+  --border-radius: 40px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 10%;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+ion-modal::part(backdrop) {
+  background: black;
+  opacity: 1;
+}
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0; /* Remove padding para centralização perfeita */
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* Certifica-se de que o conteúdo ocupa toda a altura disponível */
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.modal-txt {
+  font-size: 16px;
+  color: #443B3B;
+  margin-bottom: 20px; /* Espaço entre o texto e os botões */
+  transition: font-size 0.3s ease;
+}
+
+.btn-container {
+  display: flex;
+  gap: 3vw; /* Espaço entre os botões */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+}
+
+.btn-modal-sim,
+.btn-modal-nao {
+  --background: #FD8E87;
+  --font-size: 15px;
+  --border-radius: 7px;
+  text-transform: capitalize; /* Capitaliza o texto dos botões */
+  width: 100px; /* Ajusta a largura dos botões */
+  height: 15px; /* Ajusta a altura dos botões */
+  transition: width 0.3s ease, height 0.3s ease;
+  transition: font-size 0.3s ease;
+}
+
+/* Media query para telas menores que 330px */
+@media screen and (max-width: 360px) {
+  ion-modal {
+    --width: 95%; /* Largura de 95% da tela */
+  }
+
+  .modal-txt {
+    font-size: 12px; /* Reduz ainda mais o tamanho do texto */
+  }
+
+  .btn-modal-sim,
+  .btn-modal-nao {
+    width: 70px; /* Ajusta a largura dos botões */
+    height: auto; /* Ajusta a altura dos botões */
+    font-size: 12px; /* Reduz o tamanho da fonte dos botões */
+  }
+}
+
+/* Media query para telas menores que 295px */
+@media (max-width: 295px) {
+  ion-card {
+    width: 90%;
+    margin: 5px; /* Reduz as margens para economizar espaço */
+  }
+
+  .card-header-content {
+    padding: 0 10px; /* Reduz o padding lateral */
+  }
+
+  .icon-title {
+    align-items: center; /* Centraliza o ícone */
+  }
+
+  .img-card-doar {
+    width: 30px; /* Reduz o tamanho do ícone */
+    height: 30px; /* Reduz o tamanho do ícone */
+  }
+
+  ion-card-content {
+    font-size: 9px; /* Reduz o tamanho do texto */
+    padding: 10px 0; /* Ajusta o padding */
+  }
+
+  .valor-card {
+    font-size: 10px; /* Reduz o tamanho do valor */
+  }
+
+  .card-btn {
+    width: 70px; /* Reduz a largura do botão */
+  }
+}
+
+@media (min-width: 500px) {
+  .banner-img {
+    width: 70%;
+    height: auto;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .banner-img {
+    width: 60%;
+    height: auto;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 2.5%;
+  }
+}
+
+.banner-img {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

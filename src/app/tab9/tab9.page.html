@@ -1,0 +1,82 @@
+<ion-content>
+  <div *ngIf="isAnonymous" class="perfil-blur">
+    <div class="blur-overlay">
+      <p>Faça seu login para ter acesso aos dados do usuário</p>
+      <a routerLink="/login">
+      <ion-button>Login</ion-button>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="!isAnonymous" class="profile-container">
+    <ion-title class="dados-endereco">Dados Pessoais</ion-title>
+
+    <div class="infos">
+      <ion-item class="item-dados" lines="none">
+        <ion-label class="titulo-dados">CPF</ion-label>
+        <ion-input class="dado" [maxlength]="14" [(ngModel)]="user.cpf" (ionInput)="formatCPF($event)" (ionBlur)="checkAndUpdateCPF()"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-dados" lines="none">
+        <ion-label class="titulo-dados">Celular</ion-label>
+        <ion-input class="dado" [maxlength]="15" [(ngModel)]="user.phone" (ionInput)="formatPhone($event)" (ionBlur)="updatePhone()"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-dados" lines="none">
+        <ion-label class="titulo-dados">Nascimento</ion-label>
+        <ion-input class="dado1 custom-date-input" [(ngModel)]="user.birthdate" (input)="handleDateInput($event)" (ionBlur)="updateBirthdate()" type="date"></ion-input>
+        <ion-icon class="seta-dados seta-select" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-dados" lines="none">
+        <ion-label class="titulo-dados">Gênero</ion-label>
+        <ion-select class="dado1" placeholder="Selecione" toggleIcon="" [(ngModel)]="user.gender" (ionChange)="updateGender($event.detail.value)">
+          <ion-select-option value="fem" class="dado">Feminino</ion-select-option>
+          <ion-select-option value="masc" class="dado">Masculino</ion-select-option>
+          <ion-select-option value="outro" class="dado">Outro</ion-select-option>
+          <ion-select-option value="pfnd" class="dado">Prefiro não dizer</ion-select-option>
+        </ion-select>
+        <ion-icon slot="end" class="seta-dados seta-select" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+
+    <ion-title class="dados-endereco" id="ender">Endereço</ion-title>
+
+    <div class="infos">
+      <ion-item class="item-ender" lines="none">
+        <ion-label class="titulo-dados">CEP</ion-label>
+        <ion-input class="dado" [(ngModel)]="cep" (ionBlur)="updateAddress()" placeholder="CEP"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender" lines="none">
+        <ion-label class="titulo-dados">Rua</ion-label>
+        <ion-input class="dado" [(ngModel)]="rua" (ionBlur)="updateAddress()" placeholder="Rua"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender" lines="none">
+        <ion-label class="titulo-dados">Bairro</ion-label>
+        <ion-input class="dado" [(ngModel)]="bairro" (ionBlur)="updateAddress()" placeholder="Bairro"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender" [button]="true" lines="none">
+        <ion-label class="titulo-dados">Número</ion-label>
+        <ion-input class="dado" [(ngModel)]="numero" (ionBlur)="updateAddress()" placeholder="Número"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender"[button]="true" lines="none">
+        <ion-label class="titulo-dados">Complemento</ion-label>
+        <ion-input class="dado" [(ngModel)]="complemento" (ionBlur)="updateAddress()" placeholder="Complemento"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender" [button]="true" lines="none">
+        <ion-label class="titulo-dados">Cidade</ion-label>
+        <ion-input class="dado" [(ngModel)]="cidade" (ionBlur)="updateAddress()" placeholder="Cidade"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item class="item-ender" id="ultimo-item-ender" [button]="true" lines="none">
+        <ion-label class="titulo-dados">Estado</ion-label>
+        <ion-input class="dado" [(ngModel)]="estado" (ionBlur)="updateAddress()" placeholder="Estado"></ion-input>
+        <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

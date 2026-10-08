@@ -1,0 +1,133 @@
+<div class="ion-page" id="main-content">
+
+  <div class="banner-container">
+      <h1 class="titulo-banner">Adote!</h1>
+      <h2 class="txt-banner">Adotar é um ato de amor que transforma todas as vidas ao redor.</h2>
+      <img class="banner-img" src="../../assets/imgs/doguinhosegatinhos.png" />
+
+    <div class="encontre-animais-container">
+      <h1 class="titulo-encontre">Encontre animais perto de você!</h1>
+      <ion-grid>
+        <ion-list class="lista-encontre">
+          <ion-row class="lista-linha">
+            <!--estado-->
+            <ion-item lines="none">
+              <ion-select class="select-encontre" aria-label="estado" interface="popover" placeholder="Estado" toggleIcon="chevron-down-outline" (ionChange)="updateFilters($event.detail.value, null, selectedSpecies)" (ionChange)="getCidades($event)">
+                <ion-select-option *ngFor="let estado of estados" [value]="estado">{{estado.nome}} ({{estado.sigla}})</ion-select-option>
+              </ion-select>              
+            </ion-item>
+          </ion-row>
+        
+          <ion-row>
+            <!--cidade-->
+            <ion-item lines="none">
+              <ion-select class="select-encontre" aria-label="cidade" interface="popover" placeholder="Cidade" toggleIcon="chevron-down-outline" (ionChange)="updateFilters(selecionadoEstado, $event.detail.value, selectedSpecies)">
+                <ion-select-option *ngFor="let cidade of cidades" [value]="cidade">{{cidade.nome}}</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-row>
+
+          <ion-row>
+            <!--espécie-->
+            <ion-item lines="none">
+              <ion-select class="select-encontre" aria-label="especie" interface="popover" placeholder="Espécie" toggleIcon="chevron-down-outline" (ionChange)="updateFilters(selecionadoEstado, selectedCity, $event.detail.value)">
+                <ion-select-option value="gato">Gato</ion-select-option>
+                <ion-select-option value="cachorro">Cachorro</ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-row>
+        </ion-list>
+      </ion-grid>
+    </div>
+
+    <div class="como-funciona-container">
+      <h1 class="titulo-cards">Conheça nossos animais!</h1>
+      <h2 class="subtitulo-cards">Diversos peludinhos esperam por um lar</h2>
+      <ion-grid id="cards">
+        <ion-row [ngClass]="{'ion-align-items-center ion-justify-content-center': animalsLength <= 2, 'ion-align-items-center': animalsLength > 2}">
+
+          <ion-col *ngIf="!(animals | async)?.length" size="12" class="texto-sem-animais">
+            <p>Nenhum animal registrado neste local.<br>Tente novamente mais tarde.</p>
+          </ion-col>
+
+          <ion-col *ngFor="let animal of animals | async" size="12" size-xs="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" class="card-col">
+            <ion-card>
+              <ion-card-content>
+                <ion-grid class="info-animal">
+                  <ion-row class="ion-align-items-center">
+                    <ion-col size="4" class="foto-animal">
+                      <img class="img-card" [src]="animal.imageUrl">
+                    </ion-col>
+                    <ion-col size="8" class="detalhes-animal">
+                      <ion-card-title>
+                        {{ animal.name }} <span *ngIf="animal.adopted">- Adotado</span>
+                      </ion-card-title>
+                      <ion-row class="ion-align-items-center">
+                        <ion-col class="icon-txt">
+                          <img class="icon-info" src="../../assets/imgs/icon-{{ animal.gender | lowercase }}.png">
+                          <h5>{{ animal.gender }}</h5>
+                        </ion-col>
+                        <ion-col class="icon-txt">
+                          <img class="icon-info" src="../../assets/imgs/icon-localizaçao.png">
+                          <h5>{{ animal.city }}</h5>
+                        </ion-col>
+                      </ion-row>
+                      <ion-row class="ion-align-items-center">
+                        <ion-col class="icon-txt">
+                          <img class="icon-info" id="icon-idade" src="../../assets/imgs/icon-idade.png">
+                          <h5>{{ animal.age }}</h5>
+                        </ion-col>
+                        <ion-col class="icon-txt">
+                          <img class="icon-info" src="../../assets/imgs/icon-porte.png">
+                          <h5>{{ animal.size }}</h5>
+                        </ion-col>
+                      </ion-row>
+                      <div class="botoes-cards ion-justify-content-center">
+                        <ion-button size="small" class="card-btn" (click)="setOpen(true, animal.id)" [disabled]="animal.adopted">Adotar</ion-button>
+                        <ion-button size="small" class="card-btn" (click)="setSecondModalOpen(true, animal.id)">Saiba Mais</ion-button>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <div class="modal-content">
+          <ion-label class="modal-txt">Tem certeza que deseja adotar esse animalzinho?</ion-label>
+          <div class="btn-container">
+            <ion-button class="btn-modal-sim" (click)="adoptAnimal()">Sim</ion-button>
+            <ion-button class="btn-modal-nao" (click)="setOpen(false)">Não</ion-button>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+  <ion-modal [isOpen]="isSecondModalOpen" (didDismiss)="setSecondModalOpen(false)" class="second-modal">
+    <ng-template>
+      <div id="modal2-content">
+        <h2 class="titulo-modal">Conheça a história de {{ selectedAnimal?.name | capitalize }}</h2>
+        <div class="info-modal">
+          <img [src]="selectedAnimal?.imageUrl" alt="Foto do animal" class="foto-modal">
+        </div>
+        <div class="historia-modal">
+          <p>{{ selectedAnimal?.story }}</p>
+        </div>
+        <div class="btn-container">
+          <ion-button class="btn-modal2" (click)="setSecondModalOpen(false)">Voltar</ion-button>
+        </div>
+      </div>
+    </ng-template>
+  </ion-modal>
+  
+  
+    
+</div>

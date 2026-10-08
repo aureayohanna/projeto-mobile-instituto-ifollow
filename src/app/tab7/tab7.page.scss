@@ -1,0 +1,137 @@
+#main-content{
+  background:#F0FBFF;
+  overflow: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-container {
+text-align: center;
+background-color:#F0FBFF;
+padding-bottom: 5%;
+padding-top: 5%;
+}
+
+.banner-img {
+width: 100%;
+height: auto;
+padding-left: 7%;
+padding-right: 7%;
+margin-top: 20px;
+transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.titulo-banner {
+position: relative; 
+color: #000000;
+text-align: center;
+font-family: 'OpenSans-SemiBold', sans-serif;
+font-size: 24px;
+font-weight: 700;
+margin-top: 20px;
+padding-left: 5%;
+padding-right: 5%;
+}
+
+.txt-banner{
+color: #000000;
+text-align: center;
+margin-top: 5px;
+font-family: 'OpenSans-Light', sans-serif;
+font-size: 14px;
+font-weight: 400;
+position: relative;
+margin-right: 5%;
+margin-left: 5%;
+}
+
+.txt-banner::after {
+content: ''; 
+display: block; 
+width: 64px; 
+height: 2px; 
+background-color: #FD7169; 
+position: absolute; 
+bottom: -10px; 
+left: 50%; 
+transform: translateX(-50%);
+}
+
+#texto{
+color: #000;
+text-align: center;
+font-size: 13px;
+font-style: normal;
+font-weight: 300;
+position: relative;
+margin-right: 5%;
+margin-left: 5%;
+margin-top: 35px;
+margin-bottom: 25px;
+}
+
+#btn-contato{
+font-size: 15px;
+--background: #FEABA6;
+width: 141px;
+height: 42px;
+text-transform: capitalize;
+--border-radius: 10px;
+margin-bottom: 20px;
+transition: width 0.3s ease, height 0.3s ease;
+transition: font-size 0.3s ease;
+}
+
+#btn-contato ion-icon {
+margin-left: 8px; 
+min-width: 8px;
+}
+
+@media (max-width: 250px) {
+  #btn-contato {
+    font-size: 10px;
+    margin: 0 5px;
+    height: 26px;
+    width: 50%;
+  }
+}
+
+#btn-contato ion-icon {
+  margin-left: 5px; 
+}
+
+@media (min-width: 500px) {
+  .banner-img {
+    width: 70%;
+    height: auto;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .banner-img {
+    width: 60%;
+    height: auto;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-top: 2.5%;
+  }
+}
+
+.banner-img {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,109 @@
+<div class="ion-page" id="main-content">
+
+  <div *ngIf="username; else defaultMsg">
+    <h1 class="txt-deseja">O que deseja fazer, {{ username }}?</h1>
+  </div>
+  <ng-template #defaultMsg>
+    <h1 class="txt-deseja">O que deseja fazer?</h1>
+  </ng-template>
+  <ion-grid class="quadrados-animais">
+    <ion-row class="ion-justify-content-between">
+      <ion-col size="3" class="apadrinhar">
+        <a href="/tabs/tab4"><img class="foto-apadrinhar" src="../../assets/imgs/DOE, RESGATE! (5).png"/></a>
+        <h5>Apadrinhar</h5>
+      </ion-col>
+      <ion-col size="3" class="adotar">
+        <a href="/tabs/tab3"><img class="foto-adotar" src="../../assets/imgs/doguinhooooo.png"/></a>
+        <h5>Adotar</h5>
+      </ion-col>
+      <ion-col size="3" class="doar">
+        <a href="/tabs/tab2"><img class="foto-doar" src="../../assets/imgs/gatinhooooo.png"/></a>
+        <h5>Doar</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="banner-container">
+    <ion-row>
+      <ion-col size="12" size-xs="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+        <img class="afolou-e-gatinho-1 floating-image" src="../../assets/imgs/afolou e gatinho.png" />
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+        <h1 class="titulo-banner">Dê a voz a quem não pode falar!</h1>
+      </ion-col>
+      <ion-col size="12" size-xs="12" size-sm="12" size-md="12" size-lg="12" size-xl="12">
+        <h5 class="txt-banner">O Instituto Ifollow acredita que todos os animais merecem ter
+          qualidade de vida, e por isso atua com o resgate de animais em
+          situações de risco, promovendo a recuperação e incentivando a
+          adoção. Tão importante quanto oferecer uma nova chance a quem
+          foi maltratado e abandonado, é a conscientização da sociedade sobre a causa animal.</h5>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="como-funciona-container">
+    <h1 class="titulo-banner">Como funciona Nosso Trabalho</h1>
+    <ion-grid id="cards" class="container">
+      <ion-row class="ion-justify-content-between">
+        
+        <ion-col class="coluna-card" size="6" size-xs="6" size-sm="6" size-md="6" size-lg="2" size-xl="2">
+          <!--card denuncia-->
+          <ion-card>
+            <ion-card-header>
+              <img class="img-card" src="../../assets/imgs/alert_svgrepo.com.svg">
+              <ion-card-title>Denúncia</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              1. Averiguar a gravidade <br>
+              2. Informações da veracidade <br>
+              3. Viabilização da distância <br><br>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col class="coluna-card" size="6" size-xs="6" size-sm="6" size-md="6" size-lg="2" size-xl="2">
+          <!--card resgate-->
+          <ion-card>
+            <ion-card-header>
+              <img class="img-card" src="../../assets/imgs/pet-shelter_svgrepo.com.svg">
+              <ion-card-title>Resgate</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Assistentes da Instituição irão receber o animal
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      
+
+        <ion-col class="coluna-card" size="6" size-xs="6" size-sm="6" size-md="6" size-lg="2" size-xl="2"> 
+          <!--card hospital-->
+          <ion-card>
+            <ion-card-header>
+              <img class="img-card" src="../../assets/imgs/hospital_svgrepo.svg">
+              <ion-card-title>Hospital</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Exames clínicos e laboratoriais, testes, vermífugos, antipulga
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+
+        <ion-col class="coluna-card" size="6" size-xs="6" size-sm="6" size-md="6" size-lg="2" size-xl="2">
+          <!--card quarentena-->
+          <ion-card>
+            <ion-card-header>
+              <img class="img-card" src="../../assets/imgs/hospital-health-medical-thermometer-temperature_svgrepo.com.svg">
+              <ion-card-title>Quarentena</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Animais doentes são tratados até receberem alta, enquanto os saudáveis são vacinados,
+              castrados e disponibilizados para adoção.<br><br>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  
+    
+</div>

@@ -1,0 +1,30 @@
+<ion-app>
+  <ion-content id="main-content" [fullscreen]="true">
+    
+    <svg class="animated-svg" preserveAspectRatio="xMidYMid slice" viewBox="10 10 80 80">
+      <path fill="#fd7169" class="out-top" d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"/>
+      <path fill="#feaba6" class="out-bottom" d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"/>
+    </svg>
+
+    <div class="conteudo">
+      <img id="logo" src="../../assets/imgs/afoloulogobrancasvg.svg">
+      <div class="formulario">
+        <ion-item lines="none">
+          <ion-input type="text" [(ngModel)]="emailOrCPF" label="E-mail ou CPF" labelPlacement="floating" (input)="applyMask($event)"></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input type="password" [(ngModel)]="password" label="Senha" labelPlacement="floating"></ion-input>
+        </ion-item>
+        <ion-button type="submit" (click)="login()">Login</ion-button>
+        <div class="textocad">
+          <h5 id="txt1">Ainda não tem uma conta?</h5>
+          <a routerLink="/cadastro"><h5 id="txt2">Cadastre-se!</h5></a>
+        </div>
+        <a routerLink="/pagina-senha"><h6 id="txtesqueci">Esqueci minha senha</h6></a>
+        <h6 id="txtentrar">ou entre com</h6>
+        <ion-button id="btn-google" (click)="googleLogin()"><img id="icon-google" src="../../assets/imgs/icon-google.svg">Google</ion-button>
+        <a (click)="startWithoutLogin()"><h6 id="txtlogin">Começar sem login</h6></a>
+      </div>
+    </div>
+  </ion-content>
+</ion-app>

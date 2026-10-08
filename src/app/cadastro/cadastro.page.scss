@@ -1,0 +1,201 @@
+#main-content {
+  --background: #FD8E87;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Use min-height para permitir rolagem se necessário */
+  padding: 16px;
+  position: relative;
+  text-align: center; /* Centraliza o texto dentro do container */
+}
+
+svg.animated-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Coloca o SVG atrás de todo o conteúdo */
+}
+
+@keyframes rotate {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.animated-svg .out-top {
+animation: rotate 20s linear infinite;
+transform-origin: 13px 25px;
+}
+
+.animated-svg .out-bottom {
+animation: rotate 25s linear infinite;
+transform-origin: 84px 93px;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 32px auto;
+  padding: 32px 0; 
+}
+
+#logo {
+  width: 60%;
+  max-width: 242px;
+  margin-bottom: 32px; 
+  display: block;
+}
+
+.formulario {
+  width: 100%;
+}
+
+ion-input {
+  font-size: 14px;
+  display: flex;
+  height: 40px;
+  padding: 0px 16px;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 8px;
+  border-bottom: 1px solid #000;
+  --highlight-color-focused: #000;
+  --highlight-color-valid: var(--ion-color-success, #2dd36f);
+  --highlight-color-invalid: var(--ion-color-danger, #eb445a);
+}
+
+ion-item {
+  --background: transparent;
+  margin: 8px 16px;
+}
+
+.counter-visible {
+  --border-width: 0;
+}
+
+.counter-visible .counter-visible-counter {
+  border-top: none !important;
+  --border-width: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+ion-input.counter-visible {
+  --padding-top: 0 !important;
+  --padding-bottom: 0 !important;
+}
+
+ion-button {
+  display: flex;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  --background: #FFF;
+  color: #FD8E87;
+  margin: 16px;
+  text-transform: capitalize;
+}
+
+h5 {
+  display: inline-block;
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center; 
+  margin: 8px 0; 
+}
+
+#txt2 {
+  text-decoration: underline;
+  margin-left: 3px;
+}
+
+.textocad {
+  display: inline-block;
+  text-align: center; 
+}
+
+h6 {
+  color: #000;
+  text-align: center; 
+  margin: 8px 0; 
+}
+
+#txtentrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 16px auto;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  padding: 16px 0;
+}
+
+#txtentrar::before,
+#txtentrar::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #E6E6E6;
+  margin: 0 16px;
+}
+
+#txtlogin {
+  font-weight: 400;
+  line-height: 150%;
+  text-decoration-line: underline;
+  margin-top: 24px;
+  text-align: center; 
+}
+
+#btn-google{
+  --background: #EEE;
+  color: #000;
+}
+
+#icon-google{
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 305px) {
+  ion-input {
+    font-size: 13px;
+  }
+
+  h5 {
+    font-size: 13px;
+  }
+
+  #txtentrar {
+    font-size: 13px;
+  }
+
+  #txtesqueci {
+    font-size: 13px;
+  }
+
+  #txtlogin {
+    font-size: 13px;
+  }
+}

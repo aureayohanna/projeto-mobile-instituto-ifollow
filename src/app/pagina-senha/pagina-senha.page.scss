@@ -1,0 +1,248 @@
+#main-content {
+  --background: #FD8E87;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Ocupa toda a altura da janela */
+  padding: 16px;
+  position: relative;
+  text-align: center; /* Centraliza o texto dentro do container */
+}
+
+svg.animated-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* Coloca o SVG atrás de todo o conteúdo */
+}
+
+@keyframes rotate {
+0% {
+  transform: rotate(0deg);
+}
+100% {
+  transform: rotate(360deg);
+}
+}
+
+.animated-svg .out-top {
+animation: rotate 20s linear infinite;
+transform-origin: 13px 25px;
+}
+
+.animated-svg .out-bottom {
+animation: rotate 25s linear infinite;
+transform-origin: 84px 93px;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%; /* Adicionado para garantir que ocupe toda a altura */
+}
+
+#logo {
+  width: 60%;
+  max-width: 242px;
+  margin-bottom: 32px; /* Ajuste a margem conforme necessário */
+  display: block;
+}
+
+h3{
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.formulario {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+ion-input {
+  font-size: 14px;
+  display: flex;
+  height: 40px;
+  padding: 0px 16px;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 8px;
+  color: #000;
+  border-bottom: 1px solid #000;
+  --highlight-color-focused: #000;
+  --highlight-color-valid: var(--ion-color-success, #2dd36f);
+  --highlight-color-invalid: var(--ion-color-danger, #eb445a);
+}
+
+ion-item {
+  --background: transparent;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+ion-button {
+  display: flex;
+  height: 40px;
+  padding: 0px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  border-radius: 8px;
+  --background: #FFF;
+  color: #FD8E87;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 16px;
+  text-transform: capitalize;
+}
+
+h5 {
+  display: inline-block;
+  color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: center; /* Centraliza o texto */
+}
+
+#txt2 {
+  text-decoration: underline;
+}
+
+.textocad {
+  display: inline-block;
+  text-align: center; /* Centraliza o texto */
+}
+
+h6 {
+  color: #000;
+  text-align: center; /* Centraliza o texto */
+}
+
+#txtesqueci {
+  text-align: center;
+  font-size: 13px;
+  font-weight: 400;
+  text-decoration-line: underline;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+#txtentrar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 16px;
+  padding: 16px 0;
+}
+
+#txtentrar::before,
+#txtentrar::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #E6E6E6;
+  margin: 0 16px;
+}
+
+#txtlogin {
+  font-weight: 400;
+  line-height: 150%;
+  text-decoration-line: underline;
+  margin-top: 24px;
+  text-align: center; /* Centraliza o texto */
+}
+
+@media screen and (max-width: 305px) {
+  ion-input {
+    font-size: 13px;
+  }
+
+  h5 {
+    font-size: 13px;
+  }
+
+  #txtentrar {
+    font-size: 13px;
+  }
+
+  #txtesqueci {
+    font-size: 13px;
+  }
+
+  #txtlogin {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 240px) {
+  ion-input {
+    font-size: 12px;
+  }
+
+  h3{
+    font-size: 16px;
+  }
+
+  h5 {
+    font-size: 12px;
+  }
+
+  #txtentrar {
+    font-size: 12px;
+  }
+
+  #txtesqueci {
+    font-size: 12px;
+  }
+
+  #txtlogin {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 224px) {
+  ion-input {
+    font-size: 10px;
+  }
+
+  h3{
+    font-size: 14px;
+  }
+
+  h5 {
+    font-size: 10px;
+  }
+
+  #txtentrar {
+    font-size: 10px;
+  }
+
+  #txtesqueci {
+    font-size: 10px;
+  }
+
+  #txtlogin {
+    font-size: 10px;
+  }
+}
+

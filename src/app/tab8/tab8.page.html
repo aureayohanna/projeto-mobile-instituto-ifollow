@@ -1,0 +1,233 @@
+<ion-content>
+  <div *ngIf="isAnonymous" class="perfil-blur">
+    <div class="blur-overlay">
+      <p>Faça seu login para ter acesso ao perfil do usuário</p>
+      <a routerLink="/login">
+      <ion-button class="login-btn">Login</ion-button>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="!isAnonymous" class="profile-container">
+    <div class="perfil-content">
+      <img class="icon-perfil" [src]="profilePictureUrl" />
+      <ion-label class="edit-perfil" (click)="triggerFileInput()">
+        <span>Editar imagem</span>
+        <input type="file" #fileInput (change)="uploadFile($event)" style="display: none;" />
+      </ion-label>
+    </div>
+
+    <div class="lista-container">
+      <ion-list class="lista-perfil" lines="full">
+        <ion-item class="item-dados">
+          <ion-label slot="start" class="titulo-dados">Nome</ion-label>
+          <ion-input class="dados" [(ngModel)]="fullName" (ionBlur)="updateName()"></ion-input>
+          <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+
+        <ion-item class="item-dados">
+          <ion-label slot="start" class="titulo-dados">Usuário</ion-label>
+          <ion-input class="dados" [(ngModel)]="username" (ionBlur)="updateUser()"></ion-input>
+          <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+
+        <ion-item class="item-dados">
+          <ion-label slot="start" class="titulo-dados">Email</ion-label>
+          <ion-input class="dados" [(ngModel)]="email" (ionBlur)="updateEmail()"></ion-input>
+          <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        
+        <ion-item class="item-dados">
+          <ion-label slot="start" id="titulo-bio">Bio</ion-label>
+          <ion-textarea label="" [counter]="true" maxlength="15" class="dados" [(ngModel)]="bio" (ionBlur)="updateBio()" style="white-space: nowrap;"></ion-textarea>
+          <ion-icon class="seta-dados" name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <ion-list class="lista-ativ" lines="full">
+      <ion-item lines="none">
+        <ion-label class="titulo-ativ">Animais Apadrinhados</ion-label>
+      </ion-item>
+
+      <ng-container *ngIf="sponsoredAnimals.length > 0; else noSponsoredAnimals">
+        <ion-item>
+
+          <ion-grid id="cards">
+            <ion-row [ngClass]="{'ion-justify-content-center': sponsoredAnimals.length <= 2}">
+              <ion-col size="12" size-xs="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" class="card-col" *ngFor="let animal of sponsoredAnimals">
+                <ion-card>
+                  <ion-card-content>
+                    <ion-grid class="info-animal">
+                      <ion-row class="ion-align-items-center">
+                        <!-- Foto do Animal -->
+                        <ion-col size="12" class="ion-justify-content-center ion-align-items-center">
+                          <ion-col class="foto-animal">
+                            <ion-col size="4">
+                            <img class="img-card" [src]="animal.imageUrl">
+                          </ion-col>
+                            <!-- Informações do Animal -->
+                            <ion-col class="detalhes-animal">
+                              <ion-card-title>
+                              {{ animal.name }}
+                              </ion-card-title>
+                              <ion-row class="ion-align-items-center">
+                                <!-- Informações sobre o animal -->
+                                <ion-col class="icon-txt">
+                                  <img class="icon-info" src="../../assets/imgs/icon-{{ animal.gender | lowercase }}.png">
+                                  <h5>{{ animal.gender }}</h5>
+                                </ion-col>
+                                <ion-col class="icon-txt">
+                                  <img class="icon-info" src="../../assets/imgs/icon-localizaçao.png">
+                                  <h5>{{ animal.city }}</h5>
+                                </ion-col>
+                              </ion-row>
+                              <ion-row class="ion-align-items-center">
+                                <ion-col class="icon-txt">
+                                  <img class="icon-info" id="icon-idade" src="../../assets/imgs/icon-idade.png">
+                                  <h5>{{ animal.age }}</h5>
+                                </ion-col>
+                                <ion-col class="icon-txt">
+                                  <img class="icon-info" src="../../assets/imgs/icon-porte.png">
+                                  <h5>{{ animal.size }}</h5>
+                                </ion-col>
+                              </ion-row>
+                              <!-- Informação Custo -->
+                              <ion-row class="ion-justify-content-center ion-align-items-center">
+                                <ion-col class="icon-txt">
+                                <img class="icon-info" src="../../assets/imgs/icon-custos.png">
+                                <h5>Custos mensais: R$ {{ animal.custo }}</h5>
+                                </ion-col>
+                                <div class="blur-overlay">
+                                  <ion-button class="cancel-btn" (click)="setOpen(true, animal.id)">Cancelar Apadrinhamento</ion-button>
+                                </div>
+                              </ion-row>
+                          </ion-col>
+                        </ion-col>
+                      </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-card-content>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-item>
+      </ng-container>
+      <ng-template #noSponsoredAnimals>
+        <ion-item>
+          <ion-label class="ativ">Nenhum animal apadrinhado ainda...</ion-label>
+        </ion-item>
+      </ng-template>
+
+      <ion-item lines="none">
+        <ion-label class="titulo-ativ">Animais Adotados</ion-label>
+      </ion-item>
+      
+      <ng-container *ngIf="adoptedAnimals.length > 0; else noAdoptedAnimals">
+        <ion-item>
+        <ion-grid id="cards">
+            <ion-row [ngClass]="{'ion-justify-content-center': adoptedAnimals.length <= 2}">
+            <ion-col size="12" size-xs="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" class="card-col" *ngFor="let animal of adoptedAnimals">
+              <ion-card>
+                <ion-card-content>
+                  <ion-grid class="info-animal">
+                    <ion-row class="ion-align-items-center">
+                      <ion-col size="4" class="foto-animal">
+                        <img class="img-card" [src]="animal.imageUrl">
+                      </ion-col>
+                      <ion-col size="8" class="detalhes-animal">
+                        <ion-card-title>
+                          {{ animal.name }}
+                        </ion-card-title>
+                        <ion-row class="ion-align-items-center">
+                          <ion-col class="icon-txt">
+                            <img class="icon-info" src="../../assets/imgs/icon-{{ animal.gender | lowercase }}.png">
+                            <h5>{{ animal.gender }}</h5>
+                          </ion-col>
+                          <ion-col class="icon-txt">
+                            <img class="icon-info" src="../../assets/imgs/icon-localizaçao.png">
+                            <h5>{{ animal.city }}</h5>
+                          </ion-col>
+                        </ion-row>
+                        <ion-row class="ion-align-items-center">
+                          <ion-col class="icon-txt">
+                            <img class="icon-info" id="icon-idade" src="../../assets/imgs/icon-idade.png">
+                            <h5>{{ animal.age }}</h5>
+                          </ion-col>
+                          <ion-col class="icon-txt">
+                            <img class="icon-info" src="../../assets/imgs/icon-porte.png">
+                            <h5>{{ animal.size }}</h5>
+                          </ion-col>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      </ng-container>
+
+      <ng-template #noAdoptedAnimals>
+        <ion-item>
+          <ion-label class="ativ">Nenhum animal adotado ainda...</ion-label>
+        </ion-item>
+      </ng-template>
+
+      <ion-item lines="none">
+        <ion-label class="titulo-ativ">Doações Feitas</ion-label>
+      </ion-item>
+      <ng-container *ngIf="donations.length > 0; else noDonations">
+        <ion-item>
+          <ion-grid id="cards">
+            <ion-row [ngClass]="{'ion-justify-content-center': donations.length <= 2}">
+              <ion-col size="12" size-xs="12" size-sm="12" size-md="6" size-lg="6" size-xl="3" class="card-col"*ngFor="let donation of donations">
+                <ion-card class="ion-card-doar">
+                  <ion-card-header class="ion-card-header-doar">
+                    <div class="card-header-content-doar">
+                      <div class="icon-title-doar">
+                        <img class="img-card-doar" [src]="donation.imageUrl">
+                        <ion-card-title class="ion-card-title-doar">{{ donation.title }}</ion-card-title>
+                      </div>
+                      <ion-col class="linha-vertical"></ion-col>
+                      <div class="card-content-doar">
+                        <ion-card-content class="ion-card-content-doar">
+                          {{ donation.description }}
+                          <h6 class="valor-card-doar">R${{ donation.value }}</h6>
+                        </ion-card-content>
+                      </div>
+                    </div>
+                  </ion-card-header>
+                </ion-card>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ng-container>
+      <ng-template #noDonations>
+        <ion-item>
+          <ion-label class="ativ">Nenhuma doação feita ainda...</ion-label>
+        </ion-item>
+      </ng-template>
+    </ion-list>
+  </div>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-content class="ion-padding modal">
+        <div class="modal-content">
+          <ion-label class="modal-txt">Tem certeza que deseja parar de apadrinhar esse animalzinho?</ion-label>
+          <div class="btn-container">
+            <ion-button class="btn-modal-sim" [disabled]="!selectedAnimalId" (click)="cancelSponsorship()">Sim</ion-button>
+            <ion-button class="btn-modal-nao" (click)="setOpen(false)">Não</ion-button>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  
+</ion-content>

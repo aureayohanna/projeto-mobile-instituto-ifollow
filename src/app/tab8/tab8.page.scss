@@ -1,0 +1,518 @@
+.perfil-content {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  margin-top: 30px; /* Espaçamento superior opcional */
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.icon-perfil {
+  width: 150px;
+  height: auto;
+  border-radius: 50%;
+  display: block;
+  margin-bottom: 20px; /* Espaçamento entre a imagem e o texto */
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.edit-perfil {
+  color: #a7d2dd;
+  text-align: center;
+  font-family: 'Inter-SemiBold', sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: font-size 0.3s ease;
+}
+
+.lista-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lista-perfil {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+}
+
+.item-dados {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  --inner-padding-end: 0px;
+  --inner-padding-start: 0px; 
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-top: 0px;
+  --padding-bottom: 0px;
+}
+
+.titulo-dados {
+  color: #000000;
+  font-family: 'Inter-Medium', sans-serif;
+  font-size: 14px;
+  flex-shrink: 0;
+  width: 80px; 
+  padding-left: 20px;
+}
+
+#titulo-bio{
+  color: #000000;
+  font-family: 'Inter-Medium', sans-serif;
+  font-size: 14px;
+  width: auto;
+  max-width: 70px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+  padding-left: 20px;
+}
+
+ion-input.dados,
+ion-textarea.dados {
+  height: 40px; 
+}
+
+ion-textarea.dados {
+  --border-width: 0; 
+  --padding-bottom: 0; 
+  white-space: nowrap;
+}
+
+ion-textarea .custom-counter {
+  font-size: 12px;
+  color: #999;
+}
+
+.dados {
+  color: #000000;
+  font-family: 'Inter-Regular', sans-serif;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left; /* Alinhar à esquerda */
+  flex-grow: 1;
+}
+
+.seta-dados {
+  opacity: 0.5;
+  width: 15px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: visible;
+  padding-right: 20px;
+}
+
+#ion-textarea{
+--width: 100%;
+--padding-start: 0px; 
+--padding-end: 0px;
+}
+
+
+.lista-ativ {
+  padding-top: 5px;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.titulo-ativ {
+  color: #a7d2dd;
+  text-align: center;
+  font-family: 'Inter-SemiBold', sans-serif;
+  font-size: 17px;
+  position: relative;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.ativ {
+  color: #000000;
+  opacity: 0.5;
+  text-align: center;
+  font-family: 'Inter-Thin', sans-serif;
+  font-size: 13px;
+  position: relative;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+//cards atividades
+#cards {
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-col {
+  display: flex;
+  justify-content: center;
+  max-width: 371px; /* Largura máxima para os cards */
+}
+
+/* Cards de animais apadrinhados e adotados */
+ion-card {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 6px;
+  border: 1px solid #aad3df;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-card {
+  width: 100%;
+  min-width: 40px;
+  height: auto;
+  border-radius: 6px;
+}
+
+ion-card-title {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 10px 0;
+  text-align: center;
+  text-decoration: underline;
+}
+
+ion-card-content h5 {
+  color: #000;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.info-animal {
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.foto-animal {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.detalhes-animal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.icon-txt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.button-container {
+  width: 100%; /* Garante que o botão ocupa toda a largura disponível */
+  display: flex;
+  justify-content: center; /* Centraliza o botão horizontalmente */
+  flex-direction: column;
+}
+
+.icon-txt-custo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 0;
+  padding: 5px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.icon-info {
+  margin-right: 5px;
+}
+
+#icon-idade {
+  margin-left: -5px;
+}
+
+//cards doados
+.ion-card-doar {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  border: 1px solid rgba(253, 113, 105, 0.55);
+  width: 100%;
+  height: auto;
+  max-width: 340px; /* Ajuste para manter o tamanho consistente */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza o conteúdo verticalmente */
+  align-items: center;    /* Centraliza o conteúdo horizontalmente */
+}
+
+.img-card-doar {
+  width: 50px;
+  height: auto;
+  transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.ion-card-header-doar {
+  margin: 15px;
+}
+
+.card-header-content-doar {
+  display: flex;
+  align-items: center;
+  width: 100%; 
+}
+
+.icon-title-doar {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.linha-vertical {
+  height: 70px; 
+  border-left: 1.5px solid #fd7169;
+  padding: 0;
+  margin: 0 25px;
+}
+
+.ion-card-content-doar {
+  padding: 0;
+}
+
+.card-content-doar {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Alinha o conteúdo ao centro */
+  text-align: center;  /* Centraliza o texto */
+}
+
+.ion-card-title-doar {
+  color: #000;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 10px; /* Diminui o tamanho do título */
+  font-weight: 600;
+  text-decoration-line: underline;
+  margin-top: 10px;
+  transition: font-size 0.3s ease;
+}
+
+.ion-card-content-doar {
+  color: #000;
+  text-align: justify; 
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  transition: font-size 0.3s ease;
+}
+
+.valor-card-doar {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 15px;
+  transition: font-size 0.3s ease;
+}
+
+.perfil-blur {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px; 
+}
+
+.blur-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center; 
+  z-index: 1; 
+}
+
+.blur-overlay p {
+  margin-left: 40px;
+  margin-right: 40px;
+  font-size: 16px;
+  color: #000;
+  transition: font-size 0.3s ease;
+}
+
+.blur-overlay .login-btn {
+  text-transform: none;
+  --background: #a7d2dd;
+  --color: #fff;
+  --border-radius: 6px;
+  font-size: 16px;
+}
+
+.cancel-btn {
+  text-transform: none;
+  --background: #a7d2dd;
+  --color: #fff;
+  --border-radius: 6px;
+  font-size: 12px;
+  transition: font-size 0.3s ease;
+  white-space: wrap;
+}
+
+ion-modal {
+  --width: 350px;
+  --height: 190px;
+  --border-radius: 40px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 10%;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+ion-modal::part(backdrop) {
+  background: black;
+  opacity: 1;
+}
+
+ion-content .modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0; /* Remove padding para centralização perfeita */
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%; /* Certifica-se de que o conteúdo ocupa toda a altura disponível */
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+.modal-txt {
+  font-size: 16px;
+  color: #443B3B;
+  margin-bottom: 20px; /* Espaço entre o texto e os botões */
+  transition: font-size 0.3s ease;
+}
+
+.btn-container {
+  display: flex;
+  gap: 3vw; /* Espaço entre os botões */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+}
+
+.btn-modal-sim,
+.btn-modal-nao {
+  --background: #FD8E87;
+  --font-size: 15px;
+  --border-radius: 7px;
+  text-transform: capitalize; /* Capitaliza o texto dos botões */
+  width: 100px; /* Ajusta a largura dos botões */
+  height: 15px; /* Ajusta a altura dos botões */
+  transition: width 0.3s ease, height 0.3s ease;
+  transition: font-size 0.3s ease;
+}
+
+@media (max-width: 150px) {
+  .edit-perfil {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 370px) {
+  .ion-card-doar {
+    width: 90%;
+    margin: 5px; 
+  }
+
+  .card-header-content-doar {
+    padding: 0 10px; 
+  }
+
+  .icon-title-doar {
+    align-items: center; 
+  }
+
+  .img-card-doar {
+    width: 30px; 
+    height: 30px;
+  }
+
+  .ion-card-content-doar {
+    font-size: 9px;
+    padding: 10px 0; 
+  }
+
+  .valor-card-doar {
+    font-size: 10px; 
+  }
+
+  ion-card-title {
+    font-size: 12px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  
+  ion-card-content h5 {
+    font-size: 9px;
+    font-weight: 300;
+  }
+
+  .cancel-btn {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 340px) {
+  ion-card-title {
+    font-size: 10px;
+    font-weight: 600;
+    margin: 10px 0;
+  }
+  
+  ion-card-content h5 {
+    font-size: 7px;
+    font-weight: 300;
+  }
+
+  .cancel-btn {
+    font-size: 8px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .icon-perfil {
+    width: 195px; 
+  }
+}
+
+

@@ -1,0 +1,113 @@
+/* Use a more specific selector to avoid affecting other elements */
+ion-content {
+  --background: #fd7169;
+}
+
+.move-conteudo {
+  animation: floatAnimation 3s infinite alternate ease-in-out; /* Aplica a animação de flutuação */
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0px); /* Começa no estado inicial */
+  }
+  100% {
+    transform: translateY(-5px); /* Flutua levemente para cima */
+  }
+}
+
+.shape,
+.shape * {
+  box-sizing: border-box;
+}
+
+.shape {
+  /* Use relative units instead of fixed values */
+  width: 80vw; /* 80% da largura da viewport */
+  height: 70vh; /* 80% da altura da viewport */
+  position: relative;
+  background: #fd8e87;
+  border-radius: 41px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  /* Use relative units instead of fixed values */
+  position: absolute;
+  top: 5%; /* Ajuste a margem superior conforme desejado */
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 60%;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+.botao {
+  --background: white;
+  --border-radius: 24px;
+  --box-shadow: none;
+  --border: none;
+  --color: #fd7169;
+  --text-align: center;
+  font-weight: 750;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s ease, height 0.3s ease;
+  transition: font-size 0.3s ease;
+}
+
+ion-icon {
+  --color: #fd7169;
+  height: 1.5rem; /* Use relative units instead of fixed values */
+}
+
+.afolou {
+  position: absolute;
+  bottom: 0; /* this will attach the element to the bottom edge of the .shape element */
+  left: 0;
+  right: 0;
+  margin: auto;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+@media screen and (max-height: 700px) {
+  .logo{
+  max-height: calc(28vh - 28px); /* Ajuste conforme a altura do botão */
+  object-fit: contain;
+  }
+  .afolou {
+    position: absolute;
+    bottom: 0; /* this will attach the element to the bottom edge of the .shape element */
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-height: calc(30vh - 30px); /* Ajuste conforme a altura do botão */
+  object-fit: contain;
+  }
+}
+
+@media screen and (min-width: 340px) {
+  .logo{
+    max-width: calc(28vh - 28px); /* Ajuste conforme a altura do botão */
+    object-fit: contain;
+    }
+    .afolou {
+      position: absolute;
+      bottom: 0; /* this will attach the element to the bottom edge of the .shape element */
+      left: 0;
+      right: 0;
+      margin: auto;
+      max-width: calc(40vh - 40px); /* Ajuste conforme a altura do botão */
+    object-fit: contain;
+    }
+}
+
+@media screen and (max-width: 170px) {
+  .botao {
+    width: 50%;
+    font-size: 50%;
+  }
+}

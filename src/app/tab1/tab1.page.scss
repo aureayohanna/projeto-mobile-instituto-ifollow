@@ -1,0 +1,278 @@
+#main-content {
+  background: white;
+  overflow: auto;
+}
+
+.txt-deseja {
+  color: var(--gray, #1e1e1e);
+  text-align: left;
+  font-family: 'OpenSans-SemiBold', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  margin-left: 5%; /* Use uma porcentagem ou valor relativo */
+  transition: font-size 0.3s ease; /* Suaviza a transição */
+}
+
+.apadrinhar,
+.adotar,
+.doar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.img-text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%; /* Garante que o contêiner ocupe toda a largura */
+}
+
+.apadrinhar img,
+.adotar img,
+.doar img {
+  border-radius: 10px;
+  width: 100%; /* Ajusta a largura da imagem para 100% do contêiner pai */
+  max-width: 190px; /* Define um tamanho máximo para a imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.apadrinhar h5,
+.adotar h5,
+.doar h5 {
+  color: var(--gray, #1e1e1e);
+  text-align: center;
+  font-family: 'OpenSans-SemiBold', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  position: relative;
+  white-space: nowrap;
+  margin-top: 10px; /* Espaçamento entre a imagem e o texto */
+  transition: font-size 0.3s ease; /* Suaviza a transição */
+}
+
+.quadrados-animais {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.banner-container {
+  text-align: center;
+  background-color: #fff5f4;
+  padding-bottom: 5%;
+}
+
+.afolou-e-gatinho-1 {
+  width: 100%;
+  height: auto;
+  margin-top: 5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  transition: width 0.3s ease, height 0.3s ease; /* Suaviza a transição */
+}
+
+.titulo-banner {
+  position: relative;
+  color: #000000;
+  text-align: center;
+  font-family: 'OpenSans-SemiBold', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 5%;
+  transition: font-size 0.3s ease;
+}
+
+.titulo-banner::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 2px;
+  background-color: #FD7169;
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.txt-banner {
+  color: #000000;
+  text-align: justify;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 0; /* Remova a margem superior */
+  margin-bottom: 0; /* Remova a margem inferior */
+  font-family: 'OpenSans-Light', sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  position: relative;
+  transition: font-size 0.3s ease;
+}
+
+#cards {
+  margin-bottom: 5%;
+}
+
+.coluna-card {
+  padding: 5%;
+}
+
+ion-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 6px;
+  border-style: solid;
+  border-color: rgba(253, 113, 105, 0.55);
+  border-width: 1px;
+  width: 100%; /* Faz o card ocupar a largura completa da coluna */
+  height: 100%; /* Faz o card ocupar a altura completa da coluna */
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+ion-card-header {
+  text-align: center;
+}
+
+.img-card {
+  width: 60px;
+  height: 60px;
+  display: block;
+  margin: auto;
+}
+
+ion-card-title{
+  color: #050505;
+  text-align: center;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  transition: font-size 0.3s ease;
+  margin-top: 15px;
+}
+
+ion-card-content{
+  color: #050505;
+  text-align: center;
+  font-family: 'OpenSans-Regular', sans-serif;
+  font-size: 9px;
+  font-weight: 400;
+  position: relative;
+  transition: font-size 0.3s ease;
+}
+
+
+/*diminui 10% do tamanho da imagem principal após 500px de tela*/
+@media screen and (min-width: 500px) {
+  .afolou-e-gatinho-1 {
+    width: 80%;
+    height: auto;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .txt-deseja {
+    margin-bottom: 20px;
+  }
+
+  .apadrinhar img,
+  .adotar img,
+  .doar img {
+  border-radius: 10px;
+  width: 80%; /* Ajusta a largura da imagem para 100% do contêiner pai */
+  max-width: 190px; /* Define um tamanho máximo para a imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+}
+
+/*aumenta em 20% o tamanho de todos os textos após 750px de tela*/
+@media screen and (min-width: 750px) {
+  .txt-deseja {
+    font-size: calc(20px + 20%);
+  }
+
+  .apadrinhar h5,
+  .adotar h5,
+  .doar h5 {
+    font-size: calc(11px + 20%);
+  }
+
+  .titulo-banner {
+    font-size: calc(16px + 20%);
+  }
+
+  .txt-banner {
+    font-size: calc(14px + 20%);
+  }
+
+  ion-card-title{
+    font-size: calc(11px + 20%);
+  }
+  
+  ion-card-content{
+    font-size: calc(9px + 20%);
+  }
+
+  .titulo-banner {
+    margin-top: 4%;
+  }
+  
+  .banner-container {
+    padding-bottom: 4%;
+  }
+
+}
+
+/*ajuste dos cards após 992px de tela pois estava quebrando*/
+@media screen and (min-width: 992px) {
+  #cards {
+    margin: 5%;
+  }
+
+  .coluna-card {
+    padding: 0;
+  }
+}
+
+/*diminui 30% do tamanho da imagem principal após 1000px de tela*/
+@media screen and (min-width: 1000px) {
+  .afolou-e-gatinho-1 {
+    width: 60%;
+    height: auto;
+    margin-top: 4%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .apadrinhar img,
+  .adotar img,
+  .doar img {
+    border-radius: 10px;
+    width: 60%; /* Ajusta a largura da imagem para 100% do contêiner pai */
+    max-width: 190px; /* Define um tamanho máximo para a imagem */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+  
+}
+
+.afolou-e-gatinho-1 {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,135 @@
+<ion-tabs>
+
+  <ion-header *ngIf="selectedTab === 'tab8'">
+    <ion-toolbar class="toolbar">
+      <ion-buttons slot="start">
+        <ion-icon class="seta-voltar" slot="start" name="chevron-back-outline" (click)="voltarParaPaginaAnterior()"></ion-icon>
+      </ion-buttons>
+      <ion-title class="perfil">Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-header *ngIf="selectedTab === 'tab9'">
+    <ion-toolbar class="toolbar">
+      <ion-buttons slot="start">
+        <ion-icon class="seta-voltar" slot="start" name="chevron-back-outline" (click)="voltarParaPaginaAnterior()"></ion-icon>
+      </ion-buttons>
+      <ion-title class="perfil">Meus Dados</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-menu contentId="main-content" *ngIf="selectedTab !== 'tab8' && selectedTab !== 'tab9'">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="menu-title">Menu</ion-title>
+      <img class="x" (click)="fecharMenu()" src="../../assets/imgs/x.svg"/>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content class="ion-padding">
+    <ion-list class="lista-menu">
+      <a href="/tabs/tab1">
+        <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/home.svg"/>
+        <ion-label class="texto-menu">Home</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      </a>
+      <a href="/tabs/tab2">
+      <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/icon-doar.svg"/>
+        <ion-label class="texto-menu">Doar</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      </a>
+      <a href="/tabs/tab3">
+      <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/icon-adotar.svg"/>
+        <ion-label class="texto-menu">Adotar</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      </a>
+      <a href="/tabs/tab4">
+      <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/icon-apadrinhar.svg"/>
+        <ion-label class="texto-menu">Apadrinhar</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      </a>
+      <a href="/tabs/tab8">
+      <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/icon-perfil.svg"/>
+        <ion-label class="texto-menu">Meu Perfil</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      </a>
+      <a href="/tabs/tab9">
+      <ion-item>
+        <img class="icons-menu" src="../../assets/imgs/icon-dados.svg"/>
+        <ion-label class="texto-menu">Meus Dados</ion-label>
+        <ion-icon class="seta-menu" name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </a>
+    </ion-list>
+    <div class="btn-sair-container">
+    <a href="/inicio">
+    <ion-button fill="outline" class="btn-sair" (click)="signOut()">Sair<img class="icon-sair" src="../../assets/imgs/icon-sair.svg"/></ion-button>
+    </a>
+  </div>
+  </ion-content>
+</ion-menu>
+
+<ion-header slot="top" *ngIf="selectedTab !== 'tab8' && selectedTab !== 'tab9'">
+  <ion-toolbar id="ion-toolbar">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <div class="perfil-logo-container">
+      <ion-img class="logo-rosa" src="assets/imgs/afoloulogorosasvg.svg"></ion-img>
+      <a href="/tabs/tab8">
+        <ion-thumbnail id="imgperfil">
+          <img class="imgperfil" [src]="profilePictureUrl"/>
+        </ion-thumbnail>
+      </a>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-tab-bar slot="bottom" class="custom-tab-bar">
+    <ion-tab-button class="btn-rodape" tab="tab1" href="/tabs/tab1">
+      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27" fill="none">
+        <path d="M10.1593 23.0912V19.6836C10.1593 18.82 10.8614 18.1185 11.7312 18.1131H14.9247C15.7983 18.1131 16.5065 18.8162 16.5065 19.6836V23.0813C16.5065 23.8303 17.1152 24.4389 17.8695 24.4444H20.0483C21.0658 24.447 22.0426 24.0475 22.7631 23.3341C23.4836 22.6206 23.8885 21.6519 23.8885 20.6416V10.962C23.8885 10.1459 23.5241 9.37185 22.8936 8.84828L15.4918 2.97136C14.1979 1.94342 12.35 1.97662 11.0944 3.05037L3.8518 8.84828C3.1915 9.35642 2.79685 10.1328 2.77734 10.962V20.6318C2.77734 22.7374 4.49666 24.4444 6.61754 24.4444H8.74656C9.10976 24.447 9.459 24.3056 9.71676 24.0515C9.97452 23.7975 10.1195 23.4518 10.1195 23.0912H10.1593Z" fill="white"/>
+      </svg>
+      <ion-label>Home</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="btn-rodape" tab="tab2" href="/tabs/tab2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 26 26" fill="none">
+        <g clip-path="url(#clip0_126_29)">
+          <path d="M12.4267 12.7516C12.7427 13.0857 13.2573 13.0857 13.5778 12.7516L18.4934 7.59676C19.9198 6.09815 19.8385 3.61551 18.2406 2.23426C16.8503 1.02905 14.7785 1.24572 13.5056 2.58183L13 3.10996L12.499 2.58635C11.226 1.24572 9.15417 1.02905 7.76389 2.23426C6.17049 3.61551 6.08472 6.09815 7.51111 7.59676L12.4267 12.7516ZM25.517 16.2544C24.9844 15.7714 24.1538 15.803 23.5941 16.2544L19.4233 19.5902C18.9132 20.0009 18.2767 20.2221 17.6177 20.2221H12.2778C11.8806 20.2221 11.5556 19.8971 11.5556 19.4999C11.5556 19.1027 11.8806 18.7777 12.2778 18.7777H15.8122C16.5299 18.7777 17.1979 18.2857 17.3153 17.577C17.4642 16.6742 16.7691 15.8888 15.8889 15.8888H8.66667C7.44792 15.8888 6.26979 16.3086 5.32188 17.0759L3.22292 18.7777H0.722222C0.325 18.7777 0 19.1027 0 19.4999V23.8332C0 24.2304 0.325 24.5554 0.722222 24.5554H16.8278C17.4823 24.5554 18.1187 24.3343 18.6333 23.9235L25.4583 18.4617C26.1444 17.9155 26.1986 16.8683 25.517 16.2544Z" fill="white"/>
+        </g>
+        <defs>
+          <clipPath id="clip0_126_29">
+            <rect width="26" height="26" fill="white"/>
+          </clipPath>
+        </defs>
+      </svg>
+      <ion-label>Doar</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button class="btn-rodape" tab="tab3" href="/tabs/tab3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 29 27" fill="none">
+        <path d="M15.38 24.0525C22.1405 24.0525 27.7601 18.8318 27.7601 12.5262C27.7601 6.23202 22.1283 1 15.3679 1C8.59524 1 3 6.23202 3 12.5262C3 18.8318 8.60741 24.0525 15.38 24.0525ZM12.4064 7.48636C13.7293 7.48636 14.761 8.18696 15.38 9.23789C15.9869 8.18696 17.0428 7.48636 18.3415 7.48636C20.4412 7.48636 21.9463 8.95536 21.9463 10.9894C21.9463 14.0179 18.5114 16.7977 15.9869 18.3007C15.7927 18.4136 15.562 18.5719 15.4043 18.5719C15.2465 18.5719 14.9795 18.4136 14.7731 18.3007C12.2486 16.7977 8.8016 14.0179 8.8016 10.9894C8.8016 8.95536 10.3188 7.48636 12.4064 7.48636Z" fill="white"/>
+      </svg>
+      <ion-label>Adotar</ion-label>
+    </ion-tab-button>
+
+  <ion-tab-button class="btn-rodape" tab="tab4" href="/tabs/tab4">
+    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 23" fill="none">
+      <path d="M14.9048 2.91893C15.4828 0.897414 17.2968 -0.369178 18.9506 0.0963573C19.769 0.331222 20.4187 0.939354 20.7815 1.8159C21.1316 2.6589 21.1696 3.65288 20.8954 4.61331C20.3976 6.35382 18.9885 7.53234 17.55 7.53234C17.3179 7.53234 17.0817 7.49879 16.8496 7.43588C15.2001 6.96615 14.3269 4.94464 14.9048 2.91893ZM26.8311 9.93551C26.5738 10.833 26.0506 11.6047 25.3546 12.1038C24.8399 12.4771 24.2704 12.67 23.7093 12.67C23.4815 12.67 23.2579 12.6365 23.0385 12.5735C22.2707 12.3597 21.659 11.7851 21.3173 10.963C20.9924 10.1746 20.9544 9.24769 21.2118 8.34598C21.7518 6.45029 23.4519 5.26758 25.0044 5.70375C25.7722 5.92184 26.3839 6.49642 26.7256 7.31845C27.0505 8.10692 27.0884 9.0338 26.8311 9.93551ZM6.10461 4.61331C5.8304 3.65288 5.86836 2.6589 6.21852 1.8159C6.58133 0.939354 7.23101 0.331222 8.04943 0.0963573C9.70317 -0.369178 11.5172 0.897414 12.0952 2.91893C12.6731 4.94464 11.7999 6.96615 10.1503 7.43588C9.91832 7.49879 9.68207 7.53234 9.45004 7.53234C8.01147 7.53234 6.60242 6.35382 6.10461 4.61331ZM23.5616 17.6357C23.916 19.4391 23.4688 21.0413 22.3297 22.031C21.5957 22.6727 20.6423 22.9999 19.5876 22.9999C18.9843 22.9999 18.3431 22.8908 17.6934 22.6727C16.4236 22.2491 15.0525 22.0394 13.5 22.0394C11.9475 22.0394 10.5764 22.2491 9.30661 22.6727C7.51788 23.2725 5.82618 23.0418 4.67025 22.031C3.5312 21.0413 3.08402 19.4391 3.43839 17.6357C4.03323 14.6328 7.17194 11.7431 9.70317 9.84744C10.7916 9.07574 11.9433 8.65634 13.1498 8.58923V8.57665H13.5C13.5042 8.57665 13.5042 8.57665 13.5084 8.57665H13.6687C13.7658 8.58085 13.8417 8.57665 13.8544 8.57665V8.58923C15.1031 8.66053 16.2886 9.09252 17.2968 9.84744C19.8281 11.7431 22.9668 14.6328 23.5616 17.6357ZM3.96151 12.5735C3.74214 12.6365 3.51855 12.67 3.29074 12.67C2.72965 12.67 2.16012 12.4771 1.64544 12.1038C0.949356 11.6047 0.426236 10.833 0.168895 9.93551C-0.0884457 9.0338 -0.0504774 8.10692 0.274363 7.31845C0.616078 6.49642 1.22779 5.92184 1.99559 5.70375C3.54808 5.26758 5.24821 6.45029 5.78821 8.34598C6.04555 9.24769 6.00758 10.1746 5.68274 10.963C5.34103 11.7851 4.72931 12.3597 3.96151 12.5735Z" fill="white"/>
+    </svg>
+    <ion-label>Apadrinhar</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+
+</ion-tabs>
